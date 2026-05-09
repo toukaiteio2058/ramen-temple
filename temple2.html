@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>麺屋 〇〇 | 地元で愛される一杯を。</title>
+  <meta name="description" content="麺屋 〇〇の公式ホームページ。こだわりのラーメン、メニュー、店舗情報、アクセスをご案内します。" />
+
+  <style>
+    :root {
+      --main: #111111;
+      --red: #9d1f1f;
+      --gold: #d8a25e;
+      --cream: #fbf4e6;
+      --white: #ffffff;
+      --text: #2b2b2b;
+      --muted: #777777;
+      --line: #ead9bf;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.14);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Yu Gothic", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.8;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 96px 0;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section-head span {
+      display: inline-block;
+      color: var(--red);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.16em;
+      margin-bottom: 10px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(30px, 5vw, 48px);
+      line-height: 1.35;
+      color: var(--main);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px 30px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: 0.25s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 16px;
+    }
+
+    .btn-main {
+      background: var(--red);
+      color: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .btn-main:hover {
+      transform: translateY(-3px);
+      opacity: 0.92;
+    }
+
+    .btn-sub {
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      color: var(--white);
+      background: transparent;
+    }
+
+    .btn-sub:hover {
+      background: var(--white);
+      color: var(--red);
+    }
+
+    .btn-dark {
+      background: var(--main);
+      color: var(--white);
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(17, 17, 17, 0.78);
+      backdrop-filter: blur(12px);
+      color: var(--white);
+    }
+
+    .header-inner {
+      width: min(1180px, 94%);
+      height: 72px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav-cta {
+      padding: 9px 18px;
+      background: var(--gold);
+      color: var(--main);
+      border-radius: 999px;
+    }
+
+    /* HERO SLIDER */
+    .hero {
+      min-height: 100vh;
+      padding-top: 72px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      color: var(--white);
+      overflow: hidden;
+      background: var(--main);
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1.04);
+      transition: opacity 1.2s ease, transform 5s ease;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0, 0, 0, 0.68), rgba(0, 0, 0, 0.48));
+      z-index: 1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 190px;
+      background: linear-gradient(transparent, var(--cream));
+      z-index: 2;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      width: min(1080px, 92%);
+      margin: 0 auto;
+      padding: 90px 0;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 24px;
+      padding: 8px 17px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 8vw, 92px);
+      line-height: 1.12;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+      text-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: clamp(17px, 2.2vw, 22px);
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 34px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .slide-dots {
+      position: absolute;
+      left: 4%;
+      bottom: 72px;
+      z-index: 4;
+      display: flex;
+      gap: 10px;
+    }
+
+    .slide-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.45);
+    }
+
+    .slide-dot.active {
+      background: var(--gold);
+    }
+
+    /* MESSAGE */
+    .message {
+      background: var(--cream);
+    }
+
+    .message-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .message-image img {
+      height: 540px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .message-text h2 {
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.35;
+      margin-bottom: 24px;
+      color: var(--main);
+    }
+
+    .message-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .feature-item {
+      background: var(--white);
+      padding: 20px 22px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+    }
+
+    .feature-item strong {
+      display: block;
+      color: var(--red);
+      margin-bottom: 5px;
+    }
+
+    /* OWNER */
+    .owner {
+      background: var(--main);
+      color: var(--white);
+    }
+
+    .owner .section-head h2 {
+      color: var(--white);
+    }
+
+    .owner .section-head span {
+      color: var(--gold);
+    }
+
+    .owner-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .owner-text h3 {
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.4;
+      margin-bottom: 20px;
+    }
+
+    .owner-text p {
+      color: rgba(255, 255, 255, 0.78);
+      margin-bottom: 18px;
+    }
+
+    .owner-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .owner-list li {
+      list-style: none;
+      padding: 16px 18px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 16px;
+    }
+
+    .owner-image img {
+      height: 520px;
+      object-fit: cover;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    /* MENU */
+    .menu {
+      background: var(--white);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .menu-card {
+      overflow: hidden;
+      background: var(--white);
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .menu-card img {
+      height: 235px;
+      object-fit: cover;
+    }
+
+    .menu-body {
+      padding: 25px;
+    }
+
+    .menu-body h3 {
+      font-size: 23px;
+      color: var(--main);
+      margin-bottom: 8px;
+    }
+
+    .menu-body p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .price {
+      margin-top: 14px;
+      color: var(--red);
+      font-size: 22px;
+      font-weight: 900;
+    }
+
+    .menu-toggle-wrap {
+      text-align: center;
+      margin-top: 42px;
+    }
+
+    .all-menu {
+      display: none;
+      margin-top: 56px;
+      animation: fadeUp 0.35s ease;
+    }
+
+    .all-menu.open {
+      display: block;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .menu-category {
+      margin-bottom: 38px;
+    }
+
+    .menu-category h3 {
+      font-size: 26px;
+      color: var(--red);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .menu-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px 28px;
+    }
+
+    .menu-list-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .menu-list-item strong {
+      color: var(--main);
+    }
+
+    .menu-list-item span {
+      color: var(--red);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .menu-note {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    /* INFO */
+    .info {
+      background: var(--cream);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 42px;
+      align-items: stretch;
+    }
+
+    .info-box {
+      background: var(--white);
+      padding: 36px;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+    }
+
+    .info-box dl {
+      display: grid;
+      gap: 15px;
+    }
+
+    .info-box div {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .info-box dt {
+      color: var(--red);
+      font-weight: 900;
+    }
+
+    .map {
+      min-height: 410px;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #ddd;
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 110px 0;
+      color: var(--white);
+      text-align: center;
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.72)),
+        url("https://images.unsplash.com/photo-1591814468924-caf88d1232e1?auto=format&fit=crop&w=1800&q=80") center/cover no-repeat;
+    }
+
+    .cta h2 {
+      font-size: clamp(34px, 6vw, 66px);
+      line-height: 1.3;
+      margin-bottom: 18px;
+    }
+
+    .cta p {
+      color: rgba(255, 255, 255, 0.86);
+      margin-bottom: 30px;
+      font-size: 18px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .footer {
+      padding: 32px 0;
+      background: var(--main);
+      color: rgba(255, 255, 255, 0.65);
+      text-align: center;
+      font-size: 13px;
+    }
+
+    .mobile-fixed {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .message-grid,
+      .owner-grid,
+      .menu-grid,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding-bottom: 68px;
+      }
+
+      .header-inner {
+        height: 58px;
+      }
+
+      .logo {
+        font-size: 20px;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        min-height: 88vh;
+        padding-top: 58px;
+      }
+
+      .hero-content {
+        width: 88%;
+        padding: 70px 0;
+      }
+
+      .hero-label {
+        font-size: 12px;
+        padding: 7px 13px;
+        margin-bottom: 18px;
+      }
+
+      .hero h1 {
+        font-size: clamp(38px, 13vw, 54px);
+        line-height: 1.2;
+      }
+
+      .hero p {
+        font-size: 15px;
+        line-height: 1.9;
+      }
+
+      .hero-buttons,
+      .cta-buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 14px 22px;
+      }
+
+      .slide-dots {
+        bottom: 46px;
+        left: 6%;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .section-head {
+        margin-bottom: 34px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(28px, 9vw, 38px);
+      }
+
+      .message-image img,
+      .owner-image img {
+        height: 310px;
+        border-radius: 24px;
+      }
+
+      .message-text h2,
+      .owner-text h3 {
+        font-size: clamp(30px, 9vw, 40px);
+      }
+
+      .menu-card img {
+        height: 220px;
+      }
+
+      .menu-list {
+        grid-template-columns: 1fr;
+      }
+
+      .info-box {
+        padding: 26px;
+      }
+
+      .info-box div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+      }
+
+      .map {
+        min-height: 300px;
+      }
+
+      .cta {
+        padding: 86px 0;
+      }
+
+      .cta h2 {
+        font-size: clamp(32px, 10vw, 46px);
+      }
+
+      .mobile-fixed {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        z-index: 200;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        background: var(--main);
+        color: var(--white);
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.18);
+      }
+
+      .mobile-fixed a {
+        padding: 13px 6px;
+        text-align: center;
+        font-size: 13px;
+        font-weight: 800;
+        border-right: 1px solid rgba(255, 255, 255, 0.12);
+      }
+
+      .mobile-fixed a:last-child {
+        border-right: none;
+        background: var(--red);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">麺屋 〇〇</a>
+      <nav class="nav">
+        <a href="#message">こだわり</a>
+        <a href="#owner">店主の想い</a>
+        <a href="#menu">メニュー</a>
+        <a href="#info">店舗情報</a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="nav-cta">Instagram</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&w=1800&q=80');"></div>
+    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1800&q=80');"></div>
+    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1800&q=80');"></div>
+    <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1555992336-03a23c7b20ee?auto=format&fit=crop&w=1800&q=80');"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-label">地元で愛される、こだわりの一杯。</div>
+      <h1>一杯に、<br>本気を。</h1>
+      <p>
+        丁寧に仕込んだスープと、香り立つ一杯。
+        何度でも食べたくなるラーメンを、心を込めてお届けします。
+      </p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-main">メニューを見る</a>
+        <a href="#info" class="btn btn-sub">店舗情報を見る</a>
+      </div>
+    </div>
+
+    <div class="slide-dots" aria-hidden="true">
+      <span class="slide-dot active"></span>
+      <span class="slide-dot"></span>
+      <span class="slide-dot"></span>
+      <span class="slide-dot"></span>
+    </div>
+  </section>
+
+  <section class="section message" id="message">
+    <div class="container">
+      <div class="message-grid">
+        <div class="message-image">
+          <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=1200&q=80" alt="ラーメンのイメージ" />
+        </div>
+
+        <div class="message-text">
+          <h2>また食べたくなる、<br>記憶に残る一杯を。</h2>
+          <p>
+            麺屋 〇〇では、毎日丁寧に仕込むスープと、食感にこだわった麺を合わせ、
+            最後の一口まで楽しめるラーメンを目指しています。
+          </p>
+          <p>
+            お一人でも、ご家族でも、仕事帰りでも。
+            気軽に立ち寄れるお店として、地域に愛される一杯を提供します。
+          </p>
+
+          <div class="feature-list">
+            <div class="feature-item">
+              <strong>こだわりのスープ</strong>
+              旨味をじっくり引き出した、深みのある味わい。
+            </div>
+            <div class="feature-item">
+              <strong>麺との相性</strong>
+              スープに絡む麺を選び、一杯としての完成度を追求。
+            </div>
+            <div class="feature-item">
+              <strong>入りやすい雰囲気</strong>
+              初めての方でも入りやすい、温かい空間づくり。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section owner" id="owner">
+    <div class="container">
+      <div class="section-head">
+        <span>OWNER'S COMMITMENT</span>
+        <h2>店主のこだわり</h2>
+      </div>
+
+      <div class="owner-grid">
+        <div class="owner-text">
+          <h3>一杯の中に、<br>妥協しない仕事を。</h3>
+          <p>
+            スープの香り、麺の食感、具材のバランス。
+            どれか一つではなく、一杯として満足していただけるよう、日々仕込みを行っています。
+          </p>
+          <p>
+            初めて来た方にも、何度も来てくださる方にも、
+            「また食べたい」と思っていただける味を目指しています。
+          </p>
+
+          <ul class="owner-list">
+            <li>毎日丁寧に仕込むスープ</li>
+            <li>スープに合う麺の太さ・食感</li>
+            <li>香りと食べ応えを引き立てる具材</li>
+          </ul>
+        </div>
+
+        <div class="owner-image">
+          <img src="https://images.unsplash.com/photo-1555992336-03a23c7b20ee?auto=format&fit=crop&w=1200&q=80" alt="店主・調理風景のイメージ" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section menu" id="menu">
+    <div class="container">
+      <div class="section-head">
+        <span>MENU</span>
+        <h2>おすすめメニュー</h2>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?auto=format&fit=crop&w=900&q=80" alt="特製ラーメン" />
+          <div class="menu-body">
+            <h3>特製ラーメン</h3>
+            <p>旨味を凝縮したスープに、味玉・チャーシューを合わせた人気の一杯。</p>
+            <div class="price">¥980</div>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1591814468924-caf88d1232e1?auto=format&fit=crop&w=900&q=80" alt="醤油ラーメン" />
+          <div class="menu-body">
+            <h3>醤油ラーメン</h3>
+            <p>香り高い醤油の風味と、すっきりとした後味が楽しめる一杯。</p>
+            <div class="price">¥850</div>
+          </div>
+        </article>
+
+        <article class="menu-card">
+          <img src="https://images.unsplash.com/photo-1607301405390-d831c242f59b?auto=format&fit=crop&w=900&q=80" alt="チャーシュー丼" />
+          <div class="menu-body">
+            <h3>チャーシュー丼</h3>
+            <p>香ばしいチャーシューをご飯にのせた、ラーメンと相性抜群の一品。</p>
+            <div class="price">¥450</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="menu-toggle-wrap">
+        <button class="btn btn-dark" id="menuToggle" type="button">全メニューを見る</button>
+      </div>
+
+      <div class="all-menu" id="allMenu">
+        <div class="menu-category">
+          <h3>ラーメン</h3>
+          <div class="menu-list">
+            <div class="menu-list-item"><strong>醤油ラーメン</strong><span>¥850</span></div>
+            <div class="menu-list-item"><strong>味玉醤油ラーメン</strong><span>¥950</span></div>
+            <div class="menu-list-item"><strong>特製ラーメン</strong><span>¥980</span></div>
+            <div class="menu-list-item"><strong>チャーシューメン</strong><span>¥1,100</span></div>
+            <div class="menu-list-item"><strong>塩ラーメン</strong><span>¥850</span></div>
+            <div class="menu-list-item"><strong>味噌ラーメン</strong><span>¥900</span></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>トッピング</h3>
+          <div class="menu-list">
+            <div class="menu-list-item"><strong>味玉</strong><span>¥120</span></div>
+            <div class="menu-list-item"><strong>チャーシュー増し</strong><span>¥250</span></div>
+            <div class="menu-list-item"><strong>メンマ</strong><span>¥120</span></div>
+            <div class="menu-list-item"><strong>ネギ増し</strong><span>¥100</span></div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>ご飯もの・サイド</h3>
+          <div class="menu-list">
+            <div class="menu-list-item"><strong>チャーシュー丼</strong><span>¥450</span></div>
+            <div class="menu-list-item"><strong>白ごはん</strong><span>¥180</span></div>
+            <div class="menu-list-item"><strong>餃子</strong><span>¥380</span></div>
+            <div class="menu-list-item"><strong>唐揚げ</strong><span>¥480</span></div>
+          </div>
+        </div>
+
+        <p class="menu-note">※表示価格・メニュー内容はサンプルです。実際の内容に合わせて差し替えてください。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section info" id="info">
+    <div class="container">
+      <div class="section-head">
+        <span>ACCESS</span>
+        <h2>店舗情報</h2>
+      </div>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <dl>
+            <div>
+              <dt>店名</dt>
+              <dd>麺屋 〇〇</dd>
+            </div>
+            <div>
+              <dt>住所</dt>
+              <dd>〇〇県〇〇市〇〇町 1-2-3</dd>
+            </div>
+            <div>
+              <dt>営業時間</dt>
+              <dd>11:00〜15:00 / 17:30〜22:00</dd>
+            </div>
+            <div>
+              <dt>定休日</dt>
+              <dd>火曜日</dd>
+            </div>
+            <div>
+              <dt>電話</dt>
+              <dd>077-000-0000</dd>
+            </div>
+            <div>
+              <dt>駐車場</dt>
+              <dd>店舗前に数台あり</dd>
+            </div>
+          </dl>
+        </div>
+
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=ramen%20japan&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2>今日の一杯を、<br>ぜひご堪能ください。</h2>
+      <p>最新情報はInstagramでも発信中です。</p>
+      <div class="cta-buttons">
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="btn btn-main">Instagramを見る</a>
+        <a href="tel:0770000000" class="btn btn-sub">電話する</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 麺屋 〇〇. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <div class="mobile-fixed">
+    <a href="#menu">メニュー</a>
+    <a href="#info">アクセス</a>
+    <a href="tel:0770000000">電話</a>
+  </div>
+
+  <script>
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.slide-dot');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+      });
+    }
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 4000);
+
+    const menuToggle = document.getElementById('menuToggle');
+    const allMenu = document.getElementById('allMenu');
+
+    menuToggle.addEventListener('click', () => {
+      allMenu.classList.toggle('open');
+      const isOpen = allMenu.classList.contains('open');
+      menuToggle.textContent = isOpen ? '全メニューを閉じる' : '全メニューを見る';
+
+      if (isOpen) {
+        setTimeout(() => {
+          allMenu.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 120);
+      }
+    });
+  </script>
+
+</body>
+</html>
